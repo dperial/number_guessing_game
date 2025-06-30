@@ -6,6 +6,9 @@ echo -e "\n~~~~~ A Number Guessing Game ~~~~~\n"
 MAIN_MENU(){
   secret_number=$(( RANDOM % 1000 + 1 ))
   USER_DETAIL
+  # Capture the user guess number
+  GET_USER_GUESS
+  echo "Your guess was: $GUESS_NUMBER"
 }
 
 USER_DETAIL(){
@@ -20,7 +23,11 @@ USER_DETAIL(){
     $PSQL "INSERT INTO players(username) VALUES('$USERNAME');"
     echo -e "\nWelcome, $USERNAME! It looks like this is your first time here."
   else
-    echo -e "\nWelcome back"
+    echo -e "\nWelcome back, $USERNAME!"
   fi
+}
+GET_USER_GUESS(){
+  echo -e "Guess the secret number between 1 and 1000:"
+  read GUESS_NUMBER
 }
 MAIN_MENU
