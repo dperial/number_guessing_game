@@ -143,3 +143,13 @@
   143  git push
   144      git push --set-upstream origin main
   145  history > number_guess_commands.sh
+  146  git add .
+  147  git commit -m "feat: create a command history for the project"
+  148  git push
+  149  pg_dump -cC --inserts -U freecodecamp number_guess > number_guess.sql
+  150  pg_dump --username=freecodecamp postgres > postgres_dump.sql
+  151  psql --username=freecodecamp number_guess < postgres_dump.sql
+  152  history > number_guess_commands_2.sh
+  153  pg_dump --username=freecodecamp number_guess > number_guess.sql
+  154  history > number_guess_commands_2.sh
+  155  history > number_guess_commands.sh
